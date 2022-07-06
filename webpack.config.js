@@ -3,26 +3,32 @@ const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, './src/index.tsx'),
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.tsx', '.ts'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
   plugins: [
+    new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
@@ -34,5 +40,5 @@ module.exports = {
     static: path.resolve(__dirname, './dist'),
     historyApiFallback: true,
   },
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
 }
