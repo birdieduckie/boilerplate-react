@@ -12,33 +12,33 @@ module.exports = {
       {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader']
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   },
   resolve: {
-    extensions: ['*', '.js', '.tsx', '.ts'],
+    extensions: ['*', '.js', '.tsx', '.ts']
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   plugins: [
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
-      template: path.resolve(__dirname, './src/core/templates/index.html'),
+      template: path.resolve(__dirname, './src/core/templates/index.html')
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     static: path.resolve(__dirname, './dist'),
-    historyApiFallback: true,
+    historyApiFallback: true
   },
-  devtool: 'eval-source-map',
+  devtool: 'eval-source-map'
 }

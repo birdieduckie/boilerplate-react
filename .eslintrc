@@ -7,6 +7,7 @@
       "jsx": true
     }
   },
+ 
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -18,10 +19,12 @@
     "max-len": [1, 80, 2],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-var-requires": 0
   },
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   }
 }

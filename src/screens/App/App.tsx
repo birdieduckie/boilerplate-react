@@ -4,7 +4,7 @@ interface AppProps {
   num: number
 }
 
-const abc = 'jjjjj'
+const abc = 'jjjsj'
 
 export const App: FC<AppProps> = ({ num }) => (
   <div>
